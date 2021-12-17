@@ -1,0 +1,12 @@
+#wrapper {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    font-size: 50pt;
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+}
+
+.small {
+    font-size: 10pt;
+}
