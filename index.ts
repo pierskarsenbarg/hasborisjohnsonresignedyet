@@ -28,6 +28,13 @@ const borisBucket = new aws.s3.Bucket("borisBucket", {
     },
 });
 
+const redirectBucket = new aws.s3.Bucket("redorectbucket", {
+    acl: "public-read",
+    website: {
+        redirectAllRequestsTo: "https://hasborisjohnsonresignedyet.com/"
+    }
+})
+
 const wwwDir = path.join(process.cwd(), "www");
 
 crawlDirectory(
@@ -165,3 +172,10 @@ const apexRecord = new aws.route53.Record("apexRecord", {
         evaluateTargetHealth: true
     }]
 });
+
+const wwwRecord = new aws.route53.Record("wwwrecord", {
+    zoneId: hostedZone.zoneId,
+    name: "www.hasborisjohnsonresignedyet.com",
+    type: aws.route53.RecordTypes.CNAME,
+    records: [redirectBucket.websiteEndpoint]
+})
