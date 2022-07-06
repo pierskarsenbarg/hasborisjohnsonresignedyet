@@ -177,5 +177,6 @@ const wwwRecord = new aws.route53.Record("wwwrecord", {
     zoneId: hostedZone.zoneId,
     name: "www.hasborisjohnsonresignedyet.com",
     type: aws.route53.RecordTypes.CNAME,
-    records: [redirectBucket.websiteEndpoint]
+    records: [redirectBucket.websiteEndpoint],
+    ttl: 60
 })
