@@ -165,3 +165,4 @@ const apexRecord = new aws.route53.Record("apexRecord", {
         evaluateTargetHealth: true
     }]
 });
+
